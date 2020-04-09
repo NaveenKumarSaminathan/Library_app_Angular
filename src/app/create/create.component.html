@@ -1,0 +1,70 @@
+<div *ngIf="message" class="text-center">
+  <h3>{{message}}</h3>
+</div>
+
+<div class="container col-xl-8" *ngIf="!submitted">
+  <div class="card">
+    <div class="card-body">
+      <form class="align-content-center" #bookForm = "ngForm">
+        <fieldset>
+          <h2 class="text-center ">Enter the Book Details</h2>
+          <div class="form-group">
+            <label for="bid">Book ID:</label>
+            <input type="number" id="bid" #id = "ngModel" class="form-control" name="bid"
+                   [class.is-invalid]="id.invalid && id.touched"
+            [(ngModel)]="book.bid" required="required">
+            <small class="text-danger" [class.d-none]="id.valid || id.untouched">
+              Book ID is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="bname">Book Name:</label>
+            <input type="text" id="bname" #bname = "ngModel" class="form-control" name="bname"
+                   [class.is-invalid]="bname.invalid && bname.touched"
+            [(ngModel)]="book.bname" required="required" >
+            <small class="text-danger" [class.d-none]="bname.valid || bname.untouched">
+              Book Name is required
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input type="text" id="author" #author = "ngModel" class="form-control" name="author"
+                   [class.is-invalid]="author.invalid && author.touched"
+            [(ngModel)]="book.author" required="required">
+            <small class="text-danger" [class.d-none]="author.valid || author.untouched">
+              Author is required
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" #category = "ngModel" class="form-control" name="category"
+                   [class.is-invalid]="category.invalid && category.touched"
+                   [(ngModel)]="book.category" required="required">
+            <small class="text-danger" [class.d-none]="category.valid || category.untouched">
+              Category is required
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="availability">Availability</label>
+            <select id="availability" #availability = "ngModel" class="custom-select" name="availability"
+                    [class.is-invalid]="availability.invalid && availability.touched"
+                    [(ngModel)]="book.availability" required="required">
+              <option value="true">Available</option>
+              <option value="false">Not Available</option>
+            </select>
+            <small class="text-danger" [class.d-none]="availability.valid || availability.untouched">
+              Availability is required
+            </small>
+          </div>
+
+          <button type="button" [disabled]="bookForm.form.invalid" class="btn btn-primary"
+                  (click)="onSave()">Save Book</button>
+
+          <hr>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

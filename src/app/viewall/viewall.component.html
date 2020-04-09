@@ -1,0 +1,36 @@
+<!--<div class="container">-->
+<!--  <div class="col-xl-12">-->
+<!--    <div class="btn btn-primary" (click)="onGet()">View All Books</div>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row" *ngFor="let book of books">-->
+<!--  {{book.bid}}-->
+<!--</div>-->
+<!--<div class="container-lg" *ngIf=!"books">-->
+<!--  <h3>No Book is Available</h3>-->
+<!--</div>-->
+<div class="container-lg">
+  <h3 *ngIf="len === 0" class=" alert alert-danger text-danger text-center">
+    No Book Available
+  </h3>
+  <table *ngIf="len > 0" class="table table-bordered table-active table-striped table-responsive-md" >
+    <thead class="thead-dark">
+    <tr>
+      <th>Book ID</th>
+      <th>Book Name</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Availability</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books | sortBy: 'asc': 'bid'">
+        <td>{{ book.bid }}</td>
+        <td>{{ book.bname }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.category }}</td>
+        <td>{{ book.availability | uppercase }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

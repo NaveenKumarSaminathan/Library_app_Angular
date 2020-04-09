@@ -1,0 +1,31 @@
+<div class="container-lg">
+  <h3 *ngIf="len === 0" class="alert alert-danger text-danger text-center">
+    No Data Available
+  </h3>
+
+  <table  *ngIf="len > 0" class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Book ID</th>
+      <th>Book Name</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Availability</th>
+      <th class="text-center">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of books | sortBy: 'asc': 'bid'">
+      <td>{{ book.bid }}</td>
+      <td>{{ book.bname }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.category }}</td>
+      <td>{{ book.availability | uppercase }}</td>
+      <td class="text-center">
+        <button class="btn btn-primary" (click)="onUpdate(book.bid, book.availability)">Update</button>
+        <button class="btn btn-danger ml-2" (click)="onDelete(book.bid)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
