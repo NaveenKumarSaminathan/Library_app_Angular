@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookService} from '../book.service';
+import {BookService} from '../services/book.service';
 
 @Component({
   selector: 'app-edit',
@@ -39,11 +39,12 @@ export class EditComponent implements OnInit {
     this.editService.updateBook(bid, this.availability).subscribe((data: any) => {
       console.log(data);
       this.books = data;
-    });
-    this.editService.getBooks().subscribe((data: any) => {
-      console.log(data);
-      this.books = data;
       this.len = data.length;
     });
+    // this.editService.getBooks().subscribe((data: any) => {
+    //   console.log(data);
+    //   this.books = data;
+    //   this.len = data.length;
+    // });
   }
 }

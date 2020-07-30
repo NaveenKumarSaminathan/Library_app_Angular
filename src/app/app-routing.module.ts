@@ -11,10 +11,10 @@ import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'create', component: CreateComponent },
-  { path: 'edit', component: EditComponent },
-  { path: 'view', component: ViewComponent },
-  { path: 'viewall', component: ViewallComponent },
+  { path: 'create', component: CreateComponent }, {path: 'home/create', redirectTo: 'create'},
+  { path: 'edit', component: EditComponent }, {path: 'home/edit', redirectTo: 'edit'},
+  { path: 'view', component: ViewComponent }, {path: 'home/view', redirectTo: 'view'},
+  { path: 'viewall', component: ViewallComponent }, {path: 'home/viewall', redirectTo: 'viewall'},
   { path: '', component: LoginComponent },
   { path: '**', redirectTo: 'login' }
 ];

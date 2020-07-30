@@ -22,7 +22,11 @@
 
     </div>
     <span class="navbar-text">
-      <a *ngIf="isLoggedIn" class="nav-link" routerLink="logout" (click)=handleLogout()>Logout</a>
+      <a *ngIf="isLoggedIn" class="nav-link" routerLink="logout" (click)=handleLogout()>
+        Logout
+        <small class="font-weight-bold">({{getUserName()}})</small>
+      </a>
     </span>
   </nav>
 </div>
+
